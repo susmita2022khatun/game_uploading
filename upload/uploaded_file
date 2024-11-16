@@ -1,0 +1,19 @@
+CC = gcc
+CFLAGS = -Wall -g
+SERVER_SRC = server/server.c server/login.c server/games.c server/utils.c
+CLIENT_SRC = client/client.c client/utils.c
+COMMON_SRC = common/protocol.h common/utils.h common/constants.h
+SERVER_BIN = server
+CLIENT_BIN = client
+
+all: $(SERVER_BIN) $(CLIENT_BIN)
+
+$(SERVER_BIN): $(SERVER_SRC) $(COMMON_SRC)
+	$(CC) $(CFLAGS) -o $@ $(SERVER_SRC)
+
+$(CLIENT_BIN): $(CLIENT_SRC) $(COMMON_SRC)
+	$(CC) $(CFLAGS) -o $@ $(CLIENT_SRC)
+
+clean:
+	rm -f $(SERVER_BIN) $(CLIENT_BIN)
+

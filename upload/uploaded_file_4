@@ -1,0 +1,8 @@
+--BOUNDARY
+Content-Disposition: form-data; name="file"; filename="test.txt"
+Content-Type: application/octet-stream
+
+hello
+
+
+--BOUNDARY--
